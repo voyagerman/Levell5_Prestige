@@ -202,7 +202,7 @@
               {%- assign product_description = product.description -%}
             {%- endif -%}
 
-            {% comment %} {%- if product_description != blank -%}
+            {%- if product_description != blank -%}
               {%- if block.settings.collapse_content -%}
                 {%- assign accordion_title = 'product.general.description' | t -%}
                 {%- render 'accordion', title: accordion_title, content: product_description, prose_content: true, block: block -%}
@@ -211,9 +211,9 @@
                   {{- product_description -}}
                 </div>
               {%- endif -%}
-            {%- endif -%} {% endcomment %}
+            {%- endif -%}
 
-            {%- if product_description != blank -%}
+            {% comment %} {%- if product_description != blank -%}
               {%- assign product_description_with_sku = product_description | append: '<br>SKU: ' | append: product.variants.first.sku -%}
               
               {%- if block.settings.collapse_content -%}
@@ -224,11 +224,11 @@
                   {{- product_description_with_sku | newline_to_br -}}
                 </div>
               {%- endif -%}
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
             
 
-            {% comment %} <!-- Display SKU -->
-  <span class="variant-picker v-stack gap-4">SKU: {{ product.variants.first.sku }}</span> {% endcomment %}
+            <!-- Display SKU -->
+  <span class="variant-picker v-stack gap-4">SKU: {{ product.variants.first.sku }}</span>
 
           {%- when 'variant_picker' -%}
             {%- if product != blank -%}
