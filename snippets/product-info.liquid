@@ -213,6 +213,7 @@
               {%- endif -%}
             {%- endif -%}
 
+            <!-- Display SKU AS PART OF THE DESCRIPTION -->
             {% comment %} {%- if product_description != blank -%}
               {%- assign product_description_with_sku = product_description | append: '<br>SKU: ' | append: product.variants.first.sku -%}
               
@@ -227,8 +228,8 @@
             {%- endif -%} {% endcomment %}
             
 
-            <!-- Display SKU -->
-  <span class="variant-picker v-stack gap-4">SKU: {{ product.variants.first.sku }}</span>
+            <!-- Display SKU SEPERATELY-->
+          <span class="variant-picker v-stack gap-4">SKU: {{ product.variants.first.sku }}</span>
 
           {%- when 'variant_picker' -%}
             {%- if product != blank -%}
